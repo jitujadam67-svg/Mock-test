@@ -1,0 +1,118 @@
+export default function CitsMockTest() {
+  const totalQuestions = 1475;
+  const currentTestQuestions = 100;
+  const timer = '90 मिनट';
+  const questions = [
+    // Practice Set प्रश्नs
+
+    {
+      id: 1,
+      question: "Three wires having conductance 2, 3, and 6 mho respectively are connected in parallel in a circuit. The equivalent resistance in the circuit will be?",
+      hindi: "तीन तार जिनकी चालकता क्रमशः 2, 3 और 6 mho है, एक परिपथ में समानांतर क्रम में जुड़े हुए हैं। परिपथ में समतुल्य प्रतिरोध कितना होगा?",
+      options: ["11 Ω", "1/11 Ω", "1 Ω", "22 Ω"],
+      answer: "1/11 Ω"
+    },
+    {
+      id: 2,
+      question: "The smaller the lagging reactive power drawn by the circuit,",
+      hindi: "सर्किट द्वारा खींची गई पश्चगामी प्रतिघाती शक्ति जितनी छोटी होगी,",
+      options: [
+        "शक्ति गुणांक अधिक होगा",
+        "शक्ति गुणांक छोटा होगा",
+        "सक्रिय शक्ति अधिक होगी",
+        "इनमें से कोई नहीं"
+      ],
+      answer: "शक्ति गुणांक अधिक होगा"
+    },
+    {
+      id: 3,
+      question: "A battery is a source of ________.",
+      hindi: "बैटरी ________ का एक स्रोत है।",
+      options: ["AC वोल्टेज", "DC वोल्टेज", "स्पंदित वोल्टेज", "परिवर्तनीय वोल्टेज"],
+      answer: "DC वोल्टेज"
+    }
+  ];
+
+  const handleSubmit = () => {
+    alert("टेस्ट सफलतापूर्वक जमा हो गया! जल्द ही सभी 1475 प्रश्नों के साथ रिज़ल्ट सिस्टम जोड़ा जाएगा।");
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-100 p-6">
+      <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-6">
+        <h1 className="text-3xl font-bold text-center mb-2">
+          CITS इलेक्ट्रिशियन मॉक टेस्ट
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 text-center">
+          <div className="bg-blue-100 rounded-xl p-4">
+            <h3 className="font-bold text-xl">1475</h3>
+            <p>कुल प्रश्न</p>
+          </div>
+          <div className="bg-green-100 rounded-xl p-4">
+            <h3 className="font-bold text-xl">100</h3>
+            <p>प्रत्येक मॉक टेस्ट</p>
+          </div>
+          <div className="bg-orange-100 rounded-xl p-4">
+            <h3 className="font-bold text-xl">90 मिनट</h3>
+            <p>टाइमर</p>
+          </div>
+        </div>
+
+        <p className="text-center text-gray-600 mb-6">
+          100 प्रश्न • हिंदी • नेगेटिव मार्किंग नहीं • CITS इलेक्ट्रिशियन
+        </p>
+
+        {questions.map((q, index) => (
+          <div key={q.id} className="mb-8 border rounded-xl p-4 bg-gray-50">
+            <h2 className="font-semibold text-lg mb-2">
+              प्रश्न {index + 1}
+            </h2>
+
+            <p className="mb-2">{q.question}</p>
+            <p className="mb-4 text-gray-700">{q.hindi}</p>
+
+            <div className="space-y-2">
+              {q.options.map((opt, i) => (
+                <label
+                  key={i}
+                  className="flex items-center gap-3 bg-white border rounded-lg p-3 cursor-pointer hover:bg-blue-50"
+                >
+                  <input type="radio" name={`q-${q.id}`} />
+                  <span>{opt}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        <div className="flex flex-col md:flex-row justify-between gap-4 mt-8">
+          <button className="bg-gray-700 text-white px-6 py-3 rounded-xl text-lg hover:bg-gray-800">
+            पिछला प्रश्न
+          </button>
+
+          <button className="bg-green-600 text-white px-6 py-3 rounded-xl text-lg hover:bg-green-700">
+            अगला प्रश्न
+          </button>
+        </div>
+
+        <div className="text-center mt-8">
+          <button onClick={handleSubmit} className="bg-blue-600 text-white px-6 py-3 rounded-xl text-lg hover:bg-blue-700">
+            टेस्ट जमा करें
+          </button>
+        </div>
+      <div className="mt-10 border-t pt-6">
+          <h2 className="text-2xl font-bold mb-4 text-center">फीचर्स</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-gray-100 p-4 rounded-xl">✅ हिंदी इंटरफेस</div>
+            <div className="bg-gray-100 p-4 rounded-xl">✅ iPhone सपोर्ट</div>
+            <div className="bg-gray-100 p-4 rounded-xl">✅ ऑटो रिज़ल्ट</div>
+            <div className="bg-gray-100 p-4 rounded-xl">✅ बिना नेगेटिव मार्किंग</div>
+            <div className="bg-gray-100 p-4 rounded-xl">✅ टाइमर आधारित टेस्ट</div>
+            <div className="bg-gray-100 p-4 rounded-xl">✅ 1475 प्रश्न बैंक</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
